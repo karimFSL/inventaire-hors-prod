@@ -1,1 +1,56 @@
 env: "toto"
+
+# Nexus
+# General
+nexus_required_libs:
+  - unzip
+  - openjdk-8-jdk
+
+nexus_mirror: https://download.sonatype.com/nexus/3
+nexus_package_name: "{{ (nexus_version == 'latest') | ternary('', 'nexus-') }}{{ nexus_version }}-unix"
+nexus_package: "{{ nexus_package_name }}.tar.gz"
+nexus_sources_url: "{{ nexus_mirror }}/{{ nexus_package }}"
+
+nexus_version: latest # Or: 3.27.0-03, 3.26.0-04, etc...
+
+## Owner
+nexus_user: nexus
+nexus_group: nexus
+
+# Service options
+
+## start on boot
+nexus_service_enabled: True
+# current state: started, stopped
+nexus_service_state: started
+
+## Files & Paths
+nexus_installation_path: /opt/nexus
+nexus_log_path: /var/log/nexus
+nexus_data_path: /var/nexus
+nexus_tmp_path: "{{ nexus_data_path }}/tmp"
+
+## Port & host
+nexus_host: localhost
+nexus_port: 8081
+nexus_context_path: /
+
+## JMX
+nexus_jmx_enabled: false
+nexus_jmx_port: 9010
+nexus_jmx_remote: "true"
+nexus_jmx_local: "false"
+nexus_jmx_authenticate: "false"
+nexus_jmx_ssl: "false"
+
+nexus_java_xms: 2G
+nexus_java_xmx: 2G
+nexus_java_xxmaxdirectmemorysize: 2703m
+nexus_max_filedescriptors: 65536
+
+# SECURITY
+nexus_admin_password: admin123
+nexus_anonymous_access: true
+
+# MISCELLANEOUS
+nexus_force_reinstall: false
