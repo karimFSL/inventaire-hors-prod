@@ -58,7 +58,7 @@ nexus_force_reinstall: false
 
 
 #SOAPUI
-soapui_version: 5.3.0
+soapui_version: 5.5.0
 soapui_install_path: /opt/soapui
 
 soapui_url: http://dl.eviware.com/soapuios/{{ soapui_version }}/SoapUI-{{ soapui_version }}-linux-bin.tar.gz
