@@ -61,6 +61,6 @@ nexus_force_reinstall: false
 soapui_version: 5.3.0
 soapui_install_path: /opt/soapui
 
-soapui_url: http://cdn01.downloads.smartbear.com/soapui/{{ soapui_version }}/SoapUI-{{ soapui_version }}-linux-bin.tar.gz
+soapui_url: http://dl.eviware.com/soapuios/{{ soapui_version }}/SoapUI-{{ soapui_version }}-linux-bin.tar.gz
 soapui_required_libs:
   - unzip
