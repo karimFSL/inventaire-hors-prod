@@ -69,10 +69,9 @@ soapui_required_libs:
 
 ######JENKINS######
 # Optional method of pinning a specific version of Jenkins and/or overriding the
-# jenkins_pkg_url: "https://www.example.com"
 
 
-jenkins_version: "2.204.2"
+jenkins_version: "2.60.1"
 # Change this to `latest` to update Jenkins if a newer version is available.
 jenkins_package_state: present
 
