@@ -64,3 +64,50 @@ soapui_install_path: /opt/soapui
 soapui_url: http://dl.eviware.com/soapuios/{{ soapui_version }}/SoapUI-{{ soapui_version }}-linux-bin.tar.gz
 soapui_required_libs:
   - unzip
+
+
+
+######JENKINS######
+# Optional method of pinning a specific version of Jenkins and/or overriding the
+# jenkins_pkg_url: "https://www.example.com"
+
+
+jenkins_version: "2.204.2"
+# Change this to `latest` to update Jenkins if a newer version is available.
+jenkins_package_state: present
+
+jenkins_prefer_lts: false
+
+jenkins_connection_delay: 5
+jenkins_connection_retries: 60
+jenkins_home: /var/lib/jenkins
+jenkins_hostname: localhost
+jenkins_http_port: 8080
+jenkins_jar_location: /opt/jenkins-cli.jar
+jenkins_url_prefix: ""
+jenkins_java_options: "-Djenkins.install.runSetupWizard=false"
+
+# Plugin list can use the plugin name, or a name/version dict.
+jenkins_plugins: []
+#  - blueocean
+#  - name: influxdb
+#    version: "1.12.1"
+
+jenkins_plugins_state: present
+jenkins_plugin_updates_expiration: 86400
+jenkins_plugin_timeout: 30
+jenkins_plugins_install_dependencies: true
+jenkins_updates_url: "https://updates.jenkins.io"
+
+jenkins_admin_username: admin
+jenkins_admin_password: admin
+jenkins_admin_password_file: ""
+
+
+#DEBIAN
+jenkins_repo_url: deb https://pkg.jenkins.io/debian{{ '-stable' if (jenkins_prefer_lts | bool) else '' }} binary/
+jenkins_repo_key_url: https://pkg.jenkins.io/debian{{ '-stable' if (jenkins_prefer_lts | bool) else '' }}/jenkins.io.key
+jenkins_pkg_url: https://pkg.jenkins.io/debian/binary
+jenkins_init_file: /etc/default/jenkins
+jenkins_http_port_param: HTTP_PORT
+jenkins_java_options_env_var: JAVA_ARGS
