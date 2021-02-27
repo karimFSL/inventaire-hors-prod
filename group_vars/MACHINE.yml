@@ -109,3 +109,24 @@ jenkins_pkg_url: https://pkg.jenkins.io/debian/direct
 jenkins_init_file: /etc/default/jenkins
 jenkins_http_port_param: HTTP_PORT
 jenkins_java_options_env_var: JAVA_ARGS
+
+
+
+
+#################################################
+################# JBOSS #########################
+#################################################
+# tmp peut être global par exemple
+jboss_artifacts_dl_dest_dir: /tmp
+
+jboss_group: wildfly
+jboss_user: wildfly
+
+jboss_version: 16.0.0.Final
+jboss_url: https://download.jboss.org/wildfly/{{ jboss_version }}/wildfly-{{ jboss_version }}.tar.gz
+jboss_required_libs:
+  - unzip
+  - openjdk-8-jdk
+
+jboss_default_http_port: 8080
+jboss_default_management_port: 9990
